@@ -1,0 +1,28 @@
+# ==============================================================================
+# REQUIREMENTS - HỆ THỐNG ĐỊNH HƯỚNG NGHỀ NGHIỆP CNTT SỬ DỤNG AI
+# Cài: pip install -r requirements.txt
+# Lưu ý: model pipeline phụ thuộc phiên bản scikit-learn. Sau khi cài trên máy mới,
+# hãy chạy `python -m career_ai.train` để tạo model khớp phiên bản (metadata ghi sklearn_version).
+# ==============================================================================
+
+# 1. API Server & Web
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+streamlit>=1.32.0
+
+# 2. Machine Learning & Data
+scikit-learn>=1.8.0,<2.0
+joblib>=1.3.0
+pandas>=2.2.0
+numpy>=1.26.0
+openpyxl>=3.1.2
+
+# 3. LLM (Bước 4 - Gemini API; thư viện chính thức hiện tại là google-genai)
+google-genai>=2.0.0
+
+# 4. Tiện ích
+pydantic>=2.6.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+python-multipart>=0.0.9
+httpx>=0.27.0

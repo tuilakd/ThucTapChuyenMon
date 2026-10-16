@@ -1,0 +1,32 @@
+services:
+  # 1. FastAPI REST API Backend
+  - type: web
+    name: career-ai-api
+    runtime: python
+    # Model va du lieu da duoc version hoa trong repository; khong train lai moi lan deploy.
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: GEMINI_TIMEOUT_MS
+        value: "10000"
+
+  # 2. Streamlit Web Frontend
+  - type: web
+    name: career-ai-web
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run web/app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8
+      - key: API_URL
+        fromService:
+          type: web
+          name: career-ai-api
+          property: hostport

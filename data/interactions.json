@@ -1,0 +1,18 @@
+[
+  {
+    "id": "930033c2-ec59-4a83-b6d2-0d26e7b1fd11",
+    "timestamp": "2026-10-04T20:47:57",
+    "event_type": "view_career",
+    "top_group": "Hạ tầng & Bảo mật",
+    "career_id": "NW01",
+    "duration_seconds": null
+  },
+  {
+    "id": "8d245625-1cb1-43fa-ab3d-f106a4570a4e",
+    "timestamp": "2026-10-04T20:48:05",
+    "event_type": "view_career",
+    "top_group": "Hạ tầng & Bảo mật",
+    "career_id": "DO01",
+    "duration_seconds": null
+  }
+]
