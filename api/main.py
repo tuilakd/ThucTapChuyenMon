@@ -231,7 +231,11 @@ app = FastAPI(
     description="Hệ thống hỗ trợ quyết định định hướng nghề nghiệp CNTT dựa trên mô hình học máy và lọc dựa trên nội dung (CBF).",
     version=MODEL_VERSION,
 )
+from fastapi.responses import RedirectResponse
 
+@app.get("/", include_in_schema=False)
+def home():
+    return RedirectResponse(url="/docs")
 # Danh sách nguồn được phép, cách nhau bằng dấu phẩy, cấu hình qua biến môi trường CORS_ORIGINS.
 # Mặc định chỉ cho phép localhost; không dùng "*" cùng allow_credentials=True (không hợp lệ và thiếu an toàn).
 _cors_origins = [o.strip() for o in os.environ.get(
